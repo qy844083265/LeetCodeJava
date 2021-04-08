@@ -15,9 +15,13 @@ public class Solution {
         int[][] dp = new int[n][4];
         dp[0][0] = -prices[0];
         for (int i = 1; i < n; i++) {
+        	//买入状态
             dp[i][0] = Math.max(dp[i - 1][0], Math.max(dp[i - 1][3], dp[i - 1][1] - prices[i]));
+            //卖出，度过冷冻期状态
             dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][3]);
+            //卖出状态
             dp[i][2] = dp[i - 1][0] + prices[i];
+            //冷冻期状态
             dp[i][3] = dp[i - 1][2];
         }
         return Math.max(dp[n - 1][3], Math.max(dp[n - 1][1], dp[n - 1][2]));
