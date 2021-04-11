@@ -1,7 +1,5 @@
 package java.question.DP.q0583;
 
-import java.util.Iterator;
-
 /**
  * 
  * @author ribbonsalmark 给定两个单词 word1 和 word2，找到使得 word1 和 word2
