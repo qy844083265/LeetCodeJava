@@ -42,9 +42,4 @@ public class Solution {
         }
         return new int[] { left, right };
     }
-
-    public static void main(String[] args) {
-        var result = new Solution().validPalindrome("baab");
-        System.out.println(result);
-    }
 }
