@@ -9,6 +9,8 @@
 package java.question.Tree.q0617;
 
 import java.common.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -45,23 +47,26 @@ public class Solution {
 		if (t1 == null) {
 			return t2;
 		}
-		Stack<TreeNode[]> stack = new Stack<>();
-		stack.push(new TreeNode[] { t1, t2 });
-		while (!stack.isEmpty()) {
-			TreeNode[] n = stack.pop();
-			if (n[0] == null || n[1] == null) {
-				continue;
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(t1);
+		queue.add(t2);
+		while (!queue.isEmpty()) {
+			TreeNode node1 = queue.poll();
+			TreeNode node2 = queue.poll();
+			node1.val += node2.val;
+			if (node1.left != null && node2.left != null) {
+				queue.add(node1.left);
+				queue.add(node2.left);
 			}
-			n[0].val += n[1].val;
-			if (n[0].left == null) {
-				n[0].left = n[1].left;
-			} else {
-				stack.push(new TreeNode[] { n[0].left, n[1].right });
+			if (node1.right != null && node2.right != null) {
+				queue.add(node1.right);
+				queue.add(node2.right);
 			}
-			if (n[0].right == null) {
-				n[0].right = n[1].right;
-			} else {
-				stack.push(new TreeNode[] { n[0].right, n[1].right });
+			if (node1.left == null && node2.left != null) {
+				node1.left = node2.left;
+			}
+			if (node1.right == null && node2.right != null) {
+				node1.right = node2.right;
 			}
 		}
 		return t1;
