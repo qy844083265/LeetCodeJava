@@ -1,17 +1,8 @@
-/*
- * @Author: your name
- * @Date: 2020-07-16 23:30:19
- * @LastEditTime: 2020-07-19 13:51:07
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \leetcodelearn\src\main\java\com\amd\leetcode\leetcodelearn\question\Tree\q0617\Solution.java
- */
 package java.question.Tree.q0617;
 
 import java.common.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * 

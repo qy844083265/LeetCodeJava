@@ -1,7 +1,5 @@
 package java.question.Array.q0048;
 
-import java.util.Iterator;
-
 public class Solution {
 	public void rotate(int[][] matrix) {
 		int n = matrix.length;
